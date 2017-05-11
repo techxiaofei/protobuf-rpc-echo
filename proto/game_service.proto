@@ -1,0 +1,27 @@
+package pluto;
+
+option py_generic_services = true;
+
+message Void {}
+
+message RequestMessage
+{
+    required string msg = 1;
+}
+
+message ResponseMessage
+{
+    required string msg = 1;
+}
+
+//客户端发给服务器
+service IEchoService
+{
+    rpc echo(RequestMessage) returns(Void);
+}
+
+//服务器发给客户端
+service IEchoClient
+{
+    rpc echo_reply(ResponseMessage) returns(Void);
+}
