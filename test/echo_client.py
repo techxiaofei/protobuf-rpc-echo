@@ -23,5 +23,8 @@ if __name__ == "__main__":
 	client.sync_connect()
 	
 	client.stub.echo(None, request, None)
-	
+
+	request2 = RequestMessage()
+	request2.msg = "just for test2"
+	client.stub.echo(None, request2, None)
 	asyncore.loop()

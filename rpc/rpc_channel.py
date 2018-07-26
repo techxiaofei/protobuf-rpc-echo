@@ -45,6 +45,10 @@ class RpcChannel(service.RpcChannel):
 			self.logger.error("Call rpc method failed!")
 			print "error:",e
 			self.logger.log_last_except()
+		
+		if (len(data) > total_len):
+			data = data[total_len:]
+			self.input_data(data)
 		return True
 		
 		
